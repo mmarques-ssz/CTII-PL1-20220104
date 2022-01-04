@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Jogo da Velha</title>
+<script language="javascript">
+    var vez = "X";
+    function acao(posicao) {
+        document.getElementById(posicao).innerHTML = vez;
+        if (
+            (document.getElementById("a").innerHTML == document.getElementById("b").innerHTML &&
+            document.getElementById("a").innerHTML == document.getElementById("c").innerHTML) ||
+            (document.getElementById("d").innerHTML == document.getElementById("e").innerHTML &&
+            document.getElementById("d").innerHTML == document.getElementById("f").innerHTML) ||
+            (document.getElementById("g").innerHTML == document.getElementById("h").innerHTML &&
+            document.getElementById("g").innerHTML == document.getElementById("i").innerHTML) ||
+
+            (document.getElementById("a").innerHTML == document.getElementById("d").innerHTML &&
+            document.getElementById("a").innerHTML == document.getElementById("g").innerHTML) ||
+            (document.getElementById("b").innerHTML == document.getElementById("e").innerHTML &&
+            document.getElementById("b").innerHTML == document.getElementById("h").innerHTML) ||
+            (document.getElementById("c").innerHTML == document.getElementById("f").innerHTML &&
+            document.getElementById("c").innerHTML == document.getElementById("i").innerHTML) ||
+
+            (document.getElementById("a").innerHTML == document.getElementById("e").innerHTML &&
+            document.getElementById("a").innerHTML == document.getElementById("i").innerHTML) ||
+            (document.getElementById("c").innerHTML == document.getElementById("e").innerHTML &&
+            document.getElementById("c").innerHTML == document.getElementById("g").innerHTML)
+            )
+            window.alert("Ganhou " + vez);
+
+        vez = (vez == "X") ? "O" : "X";
+    }
+
+    function atualizar() {
+        window.location.reload();
+    }
+</script>
+</head>
+<body>
+
+<form name="frm">
+<table border="1">
+<tr>
+<td id="a"><input type="button" value="" onclick="acao('a')"/></td>
+<td id="b"><input type="button" value="" onclick="acao('b')"/></td>
+<td id="c"><input type="button" value="" onclick="acao('c')"/></td>
+</tr>
+<tr>
+<td id="d"><input type="button" value="" onclick="acao('d')"/></td>
+<td id="e"><input type="button" value="" onclick="acao('e')"/></td>
+<td id="f"><input type="button" value="" onclick="acao('f')"/></td>
+</tr>
+<tr>
+<td id="g"><input type="button" value="" onclick="acao('g')"/></td>
+<td id="h"><input type="button" value="" onclick="acao('h')"/></td>
+<td id="i"><input type="button" value="" onclick="acao('i')"/></td>
+</tr>
+</table>
+<input type="button" value="Reiniciar" onClick="atualizar()">
+</form>
+</body>
+</html>
